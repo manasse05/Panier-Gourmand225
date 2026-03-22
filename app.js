@@ -2,10 +2,8 @@
 
 const SUPABASE_URL = 'https://wcttmbbqylfwdlmxqtdb.supabase.co'
 const SUPABASE_KEY = 'sb_publishable_P8kPYTDV6OEKkmP8EBpAlQ_LYdnAt6.'
+ const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
-},
-};
 
 
 /**
