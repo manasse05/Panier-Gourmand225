@@ -1,3 +1,13 @@
+  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+const SUPABASE_URL = 'https://wcttmbbqylfwdlmxqtdb.supabase.co'
+const SUPABASE_KEY = 'sb_publishable_P8kPYTDV6OEKkmP8EBpAlQ_LYdnAt6.'
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+},
+};
+
+
 /**
  * FreshCorner — app.js
  * Logique partagée entre boutique.html et admin.html
@@ -7,6 +17,7 @@
 // ════════════════════════════════════════════════════════
 //  CONSTANTES
 // ════════════════════════════════════════════════════════
+
 const FC = {
   DEFAULT_PRODUCTS: [
     { id:1, name:"Brocolis frais",    cat:"Légumes",  price:850,  unit:"kg",   desc:"Arrivage du matin, vitaminé.",   icon:"🥦", bg:"#c8f5d6", tag:"new",   stock:true,  image:"" },
@@ -1134,6 +1145,8 @@ const Admin = {
     Store.saveSettings(s);
     Utils.toast("✅ Identifiants mis à jour !");
   },
+
+
 
   resetData() {
     if (!confirm("Réinitialiser toutes les données ?")) return;
