@@ -235,7 +235,7 @@ footer a { color: var(--o); font-weight: 800; text-decoration: none; }
 ════════════════════════════════════════════ */
 #loginScreen { position: fixed; inset: 0; background: linear-gradient(135deg, var(--g) 0%, #0f4a28 100%); display: none; align-items: center; justify-content: center; z-index: 9999; }
 .lbox { background: #fff; border-radius: 24px; padding: 2.8rem; width: 380px; max-width: 90vw; text-align: center; box-shadow: 0 30px 80px rgba(0,0,0,.3); }
-.lbox-logo { font-family: var(--fh); font-size: 1.3rem; font-weight: 800; color: var(--g); margin-bottom: .1rem; }
+.lbox-logo { font-family: var(--fh); font-size: 1.8rem; font-weight: 800; color: var(--g); margin-bottom: .2rem; }
 .lbox-logo b { color: var(--o); }
 .lhint { background: var(--gxl); border: 2px solid var(--gm); border-radius: 12px; padding: .8rem 1rem; font-size: .8rem; color: var(--muted); margin-bottom: 1.4rem; text-align: left; }
 .lhint strong { color: var(--g); display: block; margin-bottom: .2rem; }
@@ -437,15 +437,57 @@ tr:hover td { background: #fafcfa; }
    RESPONSIVE
 ════════════════════════════════════════════ */
 @media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; }
+  /* Hero */
+  .hero { grid-template-columns: 1fr; padding: 2.5rem 5%; }
   .hero-right { display: none; }
-  nav .nav-links, .search-box { display: none; }
+
+  /* Nav — on cache les liens et la recherche MAIS on garde le panier visible */
+  nav .nav-links { display: none; }
+  .search-box { display: none; }
+
+  /* Le bouton panier reste toujours visible sur mobile */
+  .cart-btn { display: flex !important; }
+  .nav-right { margin-left: auto; }
+
+  /* Produits — 2 colonnes sur tablette */
+  .prod-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
+  /* Panier — plein écran sur mobile */
+  .cart-panel { width: 100%; max-width: 100%; }
+
+  /* Commandes */
+  .orders-grid { grid-template-columns: 1fr; }
+  .contact-band { flex-direction: column; text-align: center; }
+  .cinfos { justify-content: center; }
+}
+
+@media (max-width: 600px) {
+  /* Produits — 1 colonne sur petit mobile */
+  .prod-grid { grid-template-columns: 1fr; }
+
+  /* Hero plus compact */
+  .hero { padding: 2rem 4%; }
+  .hero-stats { gap: 1.5rem; }
+
+  /* Filtre scrollable */
+  .filter-bar { padding: .8rem 4%; gap: .6rem; }
+
+  /* Footer simplifié */
+  footer { flex-direction: column; text-align: center; gap: .8rem; }
+
+  /* Panier footer */
+  .cart-footer { padding: 1rem; }
+  .oform input, .oform select, .oform textarea { font-size: .9rem; }
 }
 
 @media (max-width: 768px) {
+  /* Admin sidebar réduite */
   .sidebar { width: 58px; }
   .sb-logo, .sb-role, .sb-sec, .sb-item span:not(.si), .sb-item .sb-notif, .btn-boutique span, .btn-logout span { display: none; }
   .sb-item { justify-content: center; }
   .mrow, .two-col, .dash-grid { grid-template-columns: 1fr; }
   .content { padding: 1rem; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .order-grid { grid-template-columns: 1fr; }
+  .livr-stats { grid-template-columns: repeat(2, 1fr); }
 }
